@@ -1,0 +1,58 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.inicio{
+    grid-column: 1/6;
+    background-color: rgb(185, 85, 235);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
+}
+
+.topo{
+    font-size: 23px;
+    color: white;
+}
+
+a:hover{
+    color: black;
+}
+
+body{
+    background-color: rgb(231, 214, 248);
+}
+
+.meio{
+    grid-column: 2/5;
+    text-align: center;
+}
+
+p{
+    font-size: 20px;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 18px;
+}
+
+button {
+    background-color: rgb(185, 85, 235);
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #9c66f4;
+    color: black;
+}
+
+.redtreino{
+    color: white;
+}

@@ -1,0 +1,38 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.inicio{
+    grid-column: 1/6;
+    background-color: rgb(185, 85, 235);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80%;
+}
+
+
+.topo{
+    font-size: 23px;
+    color: white;
+}
+
+a:hover{
+    color: black;
+}
+
+.imagens{
+    display: flex;
+
+}
+
+
+.plays{
+    width: 180%;
+    height: 60%
+}
+
+#texto{
+    grid-column: 1/6;
+}
