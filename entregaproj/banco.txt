@@ -1,0 +1,98 @@
+create database acad;
+use acad;
+
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE treino (
+    id_treino INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    nivel VARCHAR(255) NOT NULL,
+    foco VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Recuperação – Foco em Superiores e Abdômen', 
+'Alongamento dinâmico dos ombros – 3x20 segundos.
+Mobilidade de escápula (prancha inclinada) – 3x12.
+Rotação externa com elástico – 3x10 cada braço.
+Elevação lateral leve – 3x12.
+Prancha de antebraço leve – 3x15 segundos.', 
+'iniciante', 
+'superiores e abdômen');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Recuperação – Foco em Inferiores', 
+'Alongamento de quadríceps e isquiotibiais – 3x20 segundos.
+Agachamento isométrico (contra a parede) – 3x15 segundos.
+Mobilidade de tornozelo com elástico – 3x10 cada lado.
+Elevação de panturrilha leve – 3x12.
+Ponte glúteo leve – 3x12.', 
+'iniciante', 
+'inferiores');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Iniciante - Foco em Superiores e Abdômen', 
+'Flexões de braço (joelhos no chão) – 3x8-10.
+Remada com halteres ou garrafas – 3x10.
+Elevação lateral (ombros) – 3x10.
+Prancha abdominal – 3x20 segundos.
+Abdominal reto (tradicional) – 3x15.',
+'iniciante', 
+'superiores e abdômen');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Iniciante - Foco em Inferiores', 
+'Agachamento livre – 3x12.
+Afundo estático (alternando as pernas) – 3x8 cada perna.
+Elevação de panturrilha – 3x15.
+Ponte glúteo – 3x12.
+Alongamento de quadríceps e posterior de coxa – 3x20 segundos.',
+'iniciante', 
+'inferiores');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Intermediário - Foco em Superiores e Abdômen', 
+'Flexões de braço completas – 3x12.
+Remada unilateral com halteres – 3x10 cada braço.
+Desenvolvimento de ombros – 3x10.
+Prancha com toque no ombro (alternado) – 3x12 toques.
+Abdominal bicicleta – 3x15 cada lado.',
+'intermediário', 
+'superiores e abdômen');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Intermediário - Foco em Inferiores', 
+'Agachamento com salto – 3x10.
+Afundo alternado – 3x10 cada perna.
+Stiff com halteres (posteriores de coxa) – 3x10.
+Ponte unilateral – 3x8 cada perna.
+Panturrilha no degrau – 3x12.',
+'intermediário', 
+'inferiores');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Avançado - Foco em Superiores e Abdômen', 
+'Flexão com peso nas costas (mochila) – 4x10.
+Barra fixa (ou com apoio elástico) – 4x8.
+Desenvolvimento com halteres (ombros) – 4x10.
+Prancha dinâmica (joelhos ao cotovelo) – 4x15.
+Abdominal V-up – 4x12.',
+'avançado', 
+'superiores e abdômen');  
+
+INSERT INTO treino (titulo, descricao, nivel, foco) 
+VALUES ('Avançado - Foco em Inferiores', 
+'Agachamento com carga (halter ou barra) – 4x8-10.
+Afundo com salto – 4x10 cada perna.
+Stiff unilateral – 4x8 cada perna.
+Ponte com peso (glúteo) – 4x10.
+Panturrilha com carga – 4x15.',
+'avançado', 
+'inferiores');  
