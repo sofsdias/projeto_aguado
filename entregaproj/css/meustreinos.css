@@ -140,11 +140,11 @@ a.btn-success:hover {
 
 @media screen and (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr; /* Para telas menores */
+        grid-template-columns: 1fr; 
     }
 
 
     .meio {
-        grid-column: 1/2; /* Para telas menores */
+        grid-column: 1/2; 
     }
 }
