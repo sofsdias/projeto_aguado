@@ -1,0 +1,150 @@
+.inicio{
+    grid-column: 1/6;
+    background-color: rgb(185, 85, 235);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.topo {
+    font-size: 23px;
+    color: white;
+    text-decoration: none;
+}
+
+
+.topo:hover {
+    color: black;
+}
+
+
+body {
+    background-color: rgb(231, 214, 248);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+p {
+    font-size: 20px;
+    color: #333;
+}
+
+
+.botoes {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 18px;
+}
+
+
+button {
+    background-color: rgb(185, 85, 235);
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #9c66f4;
+    transform: scale(1.05);
+}
+
+
+.redtreino {
+    color: white;
+    text-decoration: none;
+}
+
+.redtreino:hover{
+    color: rgb(36, 4, 4);
+}
+
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+
+.card-header {
+    background-color: rgb(185, 85, 235);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 10px;
+    text-align: left;
+    border-radius: 8px 8px 0 0;
+}
+
+
+.card-body {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+
+th {
+    background-color: rgb(185, 85, 235);
+    color: rgb(0, 0, 0);
+}
+
+
+td {
+    background-color: #f9f9f9;
+}
+
+
+a.btn-success {
+    background-color: rgb(185, 85, 235);
+    color: white;
+}
+
+
+a.btn-success:hover {
+    background-color: rgb(45, 185, 118);
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Para telas menores */
+    }
+
+
+    .meio {
+        grid-column: 1/2; /* Para telas menores */
+    }
+}
