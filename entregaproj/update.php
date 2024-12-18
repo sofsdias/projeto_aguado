@@ -1,20 +1,22 @@
 <?php
-session_start(); // Inicia os trabalhos com sessão
-require_once 'conex.php'; // Inclui a conexão com o banco
-if (isset($_GET['titulo']) && isset($_GET['descricao'])) {
-    $_SESSION['titulo_veio'] = $_GET['titulo'];
-    $_SESSION['descricao_veio'] = $_GET['descricao'];
-}
-if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via método post
-    $titulo_veio = $_SESSION['titulo_veio'] ?? '';
-    $titulo = $_POST['titulo'] ?? '';
-    $descricao_veio = $_SESSION['descricao_veio'] ?? '';
-    $descricao = $_POST['descricao'] ?? '';
+session_start(); 
+require_once 'conex.php';
 
-    $sql = "UPDATE treino SET titulo = '$titulo', descricao = '$descricao' WHERE titulo='$titulo_veio' AND descricao='$descricao_veio'";
+
+if (isset($_GET['titulo'])) {
+    $_SESSION['titulo_veio'] = $_GET['titulo'];
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $titulo = $_POST["titulo"]; 
+    $descricao = $_POST["descricao"];   
+    $titulo_veio = $_SESSION['titulo_veio']; 
+
+    $sql = "UPDATE treino set titulo = '$titulo', descricao = '$descricao' where titulo='$titulo_veio'";
     if ($conn->query($sql) === TRUE) { // Executa o insert e verifica!
         $_SESSION['message'] = "Pessoa atualizada com sucesso!"; //Cria a mensagem!
-        header("Location: meustreinos.php"); //Chama o index!
+        header("Location: index.php"); //Chama o index!
         exit(0);
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
@@ -22,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") { //verifica se será chamado via mé
     $conn->close(); //Fecha a conexão com o banco
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

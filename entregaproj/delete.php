@@ -1,22 +1,20 @@
 <?php
-session_start(); // Inicia a sessão
-require_once 'conex.php'; // Inclui a conexão com o banco
+session_start(); 
+require_once 'conex.php'; 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Verifica se o título foi enviado
-    if (!empty($_POST["titulo"])) {
-        $titulo = $_POST["titulo"]; // Captura o valor do título de forma segura
-        
-        $sql = "Delete from treino where titulo = '$titulo'";
-    if ($conn->query($sql) === TRUE) { // Executa o insert e verifica!
-        $_SESSION['message'] = "Pessoa excluida com sucesso!"; //Cria a mensagem!
-        header("Location: meustreinos.php"); //Chama o index!
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") { 
+    $titulo = $_POST["titulo"]; 
+    $descricao= $_POST["descricao"]; 
+    $sql = "Delete from treino where titulo = '$titulo'";
+    if ($conn->query($sql) === TRUE) { 
+        $_SESSION['message'] = "Treino excluido com sucesso!"; 
+        header("Location: meustreinos.php"); 
         exit(0);
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
     }
     $conn->close(); //Fecha a conexão com o banco
-    }
 }
 ?>
 

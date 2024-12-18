@@ -1,34 +1,42 @@
 <?php
-session_start();
-require_once 'conex.php';
+session_start(); 
+require_once 'conex.php'; 
 
+if ($conn->connect_error) {
+    die("Falha de conexão: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-   $email = $_POST['email'];
-   $senha = $_POST['senha'];
 
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
 
-   // Usando prepared statements para segurança
-   $stmt = $conn->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?");
-   $stmt->bind_param("ss", $email, $senha);
-   $stmt->execute();
-   $result = $stmt->get_result();
+    
+    if (empty($email) || empty($senha)) {
+        echo "<script>alert('Por favor, preencha todos os campos!');</script>";
+    } else {
+        
+        $stmt = $conn->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?");
+        $stmt->bind_param("ss", $email, $senha);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        if ($result->num_rows > 0) {
+            
+            $_SESSION['email'] = $email;
+            header('Location: meustreinos.php');
+            exit();
+        } else {
+        
+            unset($_SESSION['email']);
+            echo "<script>alert('Email ou senha incorretos!');</script>";
+        }
 
-   if ($result->num_rows > 0) {
-       $_SESSION['email'] = $email;
-       header('Location: meustreinos.php');
-       exit;
-   } else {
-       unset($_SESSION['email']);
-       header('Location: index.php');
-       exit;
-   }
-
-
-   $stmt->close();
-   $conn->close();
+        $stmt->close();
+    }
 }
+
+$conn->close();
 ?>
 
 
@@ -56,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label for="password">Senha</label>
                     <input type="password" name="senha" placeholder="Digite sua senha" required>
                 </div>
-                <button type="submit" name="acessar" value="Acessar"> <a href="meustreinos.php"> Fazer login </a> </button>
+                <button type="submit" name="acessar" value="Acessar"> Fazer login </button>
             </form>
             <br>
             <a href="avisosenha.html">Esqueceu sua senha?</a>
